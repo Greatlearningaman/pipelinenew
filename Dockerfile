@@ -1,12 +1,15 @@
-# syntax=docker/dockerfile:1
+FROM python:3.8.5 
 
-FROM python:3.8-slim-buster
+ARG PYTHON_MAIN_FILE
 
-WORKDIR /python-docker
+RUN mkdir /app
 
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+WORKDIR /app
+COPY ./requirements.txt /app
+COPY ${PYTHON_MAIN_FILE} /app/main.py
 
-COPY . .
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
-CMD ["python", "-m", "flask", "run", "--host=0.0.0.0"]
+EXPOSE 5000
+
+ENTRYPOINT ["python", "main.py"]
