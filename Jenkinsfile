@@ -7,8 +7,7 @@ pipeline {
   stages {
     stage('Build Container') {
       steps {
-        sh "docker build -t ${dockerImageTag} --build-arg PYTHON_MAIN_FILE=server.py ."
-        //sh "docker-compose up"
+        sh "docker build -t ${dockerImageTag} --build-arg PYTHON_MAIN_FILE=app.py ."
       }
     }
 

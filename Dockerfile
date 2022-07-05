@@ -1,11 +1,14 @@
 FROM python:3.8-slim-buster
 
-WORKDIR /python-docker
+ARG PYTHON_MAIN_FILE
 
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN mkdir /app
 
-COPY . .
+WORKDIR /app
+COPY ./requirements.txt /app
+COPY ${PYTHON_MAIN_FILE} /app/main.py
+
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 EXPOSE 5000
 
