@@ -89,17 +89,17 @@ class Add(Resource):
         return history.create(payload)
 
 
-@ns.route("/subtract")
-class Subtract(Resource):
-    """Subtract two numbers"""
+# @ns.route("/subtract")
+# class Subtract(Resource):
+#     """Subtract two numbers"""
 
-    @ns.doc("subtract")
-    @ns.expect(arith_op)
-    def post(self):
-        payload = request.get_json()
-        payload["op"] = "subtract"
-        payload["result"] = payload["a"] - payload["b"]
-        return history.create(payload)
+#     @ns.doc("subtract")
+#     @ns.expect(arith_op)
+#     def post(self):
+#         payload = request.get_json()
+#         payload["op"] = "subtract"
+#         payload["result"] = payload["a"] - payload["b"]
+#         return history.create(payload)
 
 
 @ns.route("/multiply")
