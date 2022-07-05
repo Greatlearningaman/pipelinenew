@@ -6,7 +6,7 @@ RUN mkdir /app
 
 WORKDIR /app
 COPY ./requirements.txt /app
-COPY ${PYTHON_MAIN_FILE} /app/main.py
+COPY ${PYTHON_MAIN_FILE} /app/app.py
 
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
