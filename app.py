@@ -115,20 +115,20 @@ class Add(Resource):
 #         return history.create(payload)
 
 
-# @ns.route("/divide")
-# class Divide(Resource):
-#     """Divide two numbers"""
+@ns.route("/divide")
+class Divide(Resource):
+    """Divide two numbers"""
 
-#     @ns.doc("divide")
-#     @ns.expect(arith_op)
-#     def post(self):
-#         payload = request.get_json()
-#         payload["op"] = "divide"
-#         if payload["b"] != 0:
-#             payload["result"] = payload["a"] / payload["b"]
-#         else:
-#             payload["result"] = ""
-#         return history.create(payload)
+    @ns.doc("divide")
+    @ns.expect(arith_op)
+    def post(self):
+        payload = request.get_json()
+        payload["op"] = "divide"
+        if payload["b"] != 0:
+            payload["result"] = payload["a"] / payload["b"]
+        else:
+            payload["result"] = ""
+        return history.create(payload)
 
 
 if __name__ == "__main__":
