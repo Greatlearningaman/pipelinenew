@@ -102,17 +102,17 @@ class Subtract(Resource):
         return history.create(payload)
 
 
-@ns.route("/multiply")
-class Multiply(Resource):
-    """Multiply two numbers"""
+# @ns.route("/multiply")
+# class Multiply(Resource):
+#     """Multiply two numbers"""
 
-    @ns.doc("multiply")
-    @ns.expect(arith_op)
-    def post(self):
-        payload = request.get_json()
-        payload["op"] = "multiply"
-        payload["result"] = payload["a"] * payload["b"]
-        return history.create(payload)
+#     @ns.doc("multiply")
+#     @ns.expect(arith_op)
+#     def post(self):
+#         payload = request.get_json()
+#         payload["op"] = "multiply"
+#         payload["result"] = payload["a"] * payload["b"]
+#         return history.create(payload)
 
 
 @ns.route("/divide")
