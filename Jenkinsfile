@@ -8,7 +8,7 @@ pipeline {
     }
     stage('run_container'){
          steps{
-           bat "docker run -d aman -p 5001:5000 aman1"
+           bat "docker run -d --name aman -p 5001:5000 aman1"
          }
     }
   }
